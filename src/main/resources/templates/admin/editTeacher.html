@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/admin :: headLink"></head>
+<body>
+<!--wrapper-->
+	<div class="wrapper">
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">School Management</h4>
+				</div>
+				<div class="toggle-icon ms-auto">				
+				</div>
+			 </div>
+			<ul class="metismenu" id="menu" th:replace="layout/admin :: sidebar"></ul>
+				</li>
+			</ul>
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header th:replace="layout/admin :: headerSection"></header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<div class="container">
+					<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">School Management</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="/home"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Teachers</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			    	<div class="row">
+			    		<div class="col-md-8 mx-auto rounded border p-4 m-4">
+			    			<h2 class="text-center mb-5">Edit Teacher Information</h2>
+			    			<form method="post" action="#" th:href="@{/edit}" th:object="${teacherDto}">
+			    						<input readonly class="form-control-plaintext" th:value="${teachers.id}" hidden="true">			    		
+			    				<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Name</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.name}">
+			    						<p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.name}"></p>
+			    					</div>
+			    				</div>
+			    					
+								<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Qualification</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.qualification}">
+			    						<p th:if="${#fields.hasErrors('qualification')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.qualification}"></p>
+			    					</div>
+			    				</div>
+			    				
+								<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Phone</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.phone}">
+			    						<p th:if="${#fields.hasErrors('phone')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.phone}"></p>
+			    					</div>
+			    				</div>
+			    				
+			    				<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Email</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.email}">
+			    						<p th:if="${#fields.hasErrors('email')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.email}"></p>
+			    					</div>
+			    				</div>
+			    				<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Address</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.address}">
+			    						<p th:if="${#fields.hasErrors('address')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.address}"></p>
+			    					</div>
+			    				</div>
+			    				
+			    	    		<div class="row mb-3">
+			    					<label class="col-sm-4 col-form-label">Service Year</label>
+			    					<div class="col-sm-8">
+			    						<input class="form-control" th:field="${teacherDto.serviceYear}">
+			    						<p th:if="${#fields.hasErrors('serviceYear')}" th:errorclass="text-danger"
+    										th:errors="${teacherDto.serviceYear}"></p>
+			    					</div>
+			    				</div>
+			
+			    				<div class="row">
+			    					<div class="offset-sm-4 col-sm-4 d-grid">
+			    						<button type="submit" class="btn btn-primary">Save</button>
+			    					</div>
+			    					
+			    					<div class="col-sm-4 d-grid">
+			    						<a class="btn btn-outline-primary" href="/teachers/cancel" role="button">Cancel</a>
+			    					</div>
+			    				</div>
+			    				
+			    			</form>
+			    		</div>
+			    	</div>
+			    </div><!--end row-->
+			</div>
+		</div>
+<div th:include="layout/adminfooter"></div>

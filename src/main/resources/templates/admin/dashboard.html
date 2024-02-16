@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/admin :: headLink"></head>
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">Admin User</h4>
+				</div>
+				<div class="toggle-icon ms-auto">				
+				</div>
+			 </div>
+			<ul class="metismenu" id="menu" th:replace="layout/admin :: sidebar"></ul>
+				</li>
+			</ul>
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header th:replace="layout/admin :: headerSection"></header>
+		<!--end header -->
+		<!--start page wrapper -->
+		
+<div class="page-wrapper">
+			<div class="page-content">
+				<div class="row row-cols-1 row-cols-md-4 row-cols-xl-8">
+                   <div class="col-lg-4">
+					 <div class="card radius-10 border-start border-0 border-4 border-info">
+						<a href="/teachers/list">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Teachers</p>
+									<h4 class="my-1 text-info" th:text="${teachers}"></h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+								</div>
+							</div>
+						</div>
+						</a>
+					 </div>
+				   </div>
+				   <div class="col-lg-4">
+					 <div class="card radius-10 border-start border-0 border-4 border-info">
+						 <a href="/students/list">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Students</p>
+									<h4 class="my-1 text-info" th:text="${students}"></h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+								</div>
+							</div>
+						</div>
+						</a>
+					 </div>
+				   </div>
+				   <div class="col-lg-4">
+					 <div class="card radius-10 border-start border-0 border-4 border-info">
+						 <a href="/courses/list">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Courses</p>
+									<h4 class="my-1 text-info" th:text="${courses}"></h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+								</div>
+							</div>
+						</div>
+						</a>
+					 </div>
+				   </div>
+				   <div class="col-lg-4">
+					 <div class="card radius-10 border-start border-0 border-4 border-info">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Assignments</p>
+									<h4 class="my-1 text-info" th:text="${assignments}"></h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+								</div>
+							</div>
+						</div>
+					 </div>
+				   </div>
+				   <div class="col-lg-4 mb-4">
+					 <div class="card radius-10 border-start border-0 border-4 border-info">
+						<a href="/teacherCourses/list">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Class</p>
+									<h4 class="my-1 text-info" th:text="${teacherCourses}"></h4>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+								</div>
+							</div>
+						</div>
+						</a>
+					 </div>
+				   </div>
+				   </a>
+				</div><!--end row-->
+			</div>
+		</div>
+		
+
+<div th:include="layout/adminfooter"></div>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/admin :: headLink"></head>
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">Teacher Assign</h4>
+				</div>
+				<div class="toggle-icon ms-auto">
+				</div>
+			</div>
+			<ul class="metismenu" id="menu" th:replace="layout/admin :: sidebar"></ul>
+			</li>
+			</ul>
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header th:replace="layout/admin :: headerSection"></header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10 mx-auto rounded border p-4 m-4">
+							<h2 class="text-center mb-5">Teacher Assignment</h2>
+							<form method="post" action="" th:object="${teacherCoursesDto}">
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">Class Name</label>
+									<div class="col-sm-8">
+										<input class="form-control" th:field="${teacherCoursesDto.name}">
+										<p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger"
+											th:errors="${teacherCoursesDto.name}"></p>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">Start Date</label>
+									<div class="col-sm-8">
+										<input class="form-control" type="date"
+											th:field="${teacherCoursesDto.startDate}">
+										<p th:if="${#fields.hasErrors('startDate')}" th:errorclass="text-danger"
+											th:errors="${teacherCoursesDto.startDate}"></p>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">End Date</label>
+									<div class="col-sm-8">
+										<input class="form-control" type="date" th:field="${teacherCoursesDto.endDate}">
+										<p th:if="${#fields.hasErrors('endDate')}" th:errorclass="text-danger"
+											th:errors="${teacherCoursesDto.endDate}"></p>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">Teacher</label>
+									<select class="col-sm-8" th:field="${teacherCoursesDto.teacherId}">
+										<option th:each="teacher : ${teachersList}" th:value="${teacher.id}"
+											th:text="${teacher.name}">
+										</option>
+									</select>
+								</div>
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">Course</label>
+									<select class=" col-sm-8" th:field="${teacherCoursesDto.courseId}">
+										<option th:each="course : ${coursesList}" th:value="${course.id}"
+											th:text="${course.name}">
+										</option>
+									</select>
+								</div>
+								<div class="row mb-3">
+									<div class="offset-sm-4 col-sm-4 d-grid">
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+
+									<div class="col-sm-4 d-grid">
+										<div class="col-sm-4 d-grid">
+											<a class="btn btn-outline-primary"
+												th:href="@{/teacherCourses/list}" role="button">Cancel</a>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:include="layout/adminfooter"></div>

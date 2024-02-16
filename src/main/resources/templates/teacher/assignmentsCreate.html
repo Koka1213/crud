@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/teacher :: headLink"></head>
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">E-Commerce</h4>
+				</div>
+				<div class="toggle-icon ms-auto">				
+				</div>
+			 </div>
+			<ul class="metismenu" id="menu" th:replace="layout/teacher :: sidebar"></ul>
+				</li>
+			</ul>
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header th:replace="layout/teacher :: headerSection"></header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+						<div class="page-content">
+				<div class="container">
+					<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">School Management</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="/teachers/teacherCourses"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Teachers</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			    	<div class="row">
+			    		<div class="col-md-8 mx-auto rounded border p-4 m-4">
+			    			<h2 class="text-center mb-5">Giving Assignment</h2>
+	<form method="post" th:action="@{/teachers/teacherCourses/assignment/create(id=${teacherCoursesId})}" th:object="${assignmentsDto}">
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Title</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="text" th:field="${assignmentsDto.title}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Due Date</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="date" th:field="${assignmentsDto.dueDate}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Total Point</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="number" th:field="${assignmentsDto.totalPoint}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Assignment Description</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" rows="4" th:field="${assignmentsDto.description}"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Instruction</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" rows="4" th:field="${assignmentsDto.instruction}"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-sm-4 col-sm-4 d-grid">
+            <type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-4 d-grid">
+            <a class="btn btn-outline-primary" href="/teachers/teacherCourses" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+
+			    		</div>
+			    	</div>
+			    </div><!--end row-->
+			</div>
+		</div>
+<div th:include="layout/adminfooter"></div>

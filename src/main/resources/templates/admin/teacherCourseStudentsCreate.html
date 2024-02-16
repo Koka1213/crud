@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/admin :: headLink"></head>
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">Teacher Assign</h4>
+				</div>
+				<div class="toggle-icon ms-auto">
+				</div>
+			</div>
+			<ul class="metismenu" id="menu" th:replace="layout/admin :: sidebar"></ul>
+			</li>
+			</ul>
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header th:replace="layout/admin :: headerSection"></header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10 mx-auto rounded border p-4 m-4">
+							<h2 class="text-center mb-5">Student Assignment</h2>
+							<form method="post" action="create" th:object="${teacherCourseStudentsDto}">
+								<input class="form-control" hidden="true" th:field="${teacherCourseStudentsDto.teacherCoursesId}" th:value="${teacherCoursesId}">
+								<div class="row mb-3">
+									<label class="col-sm-4 col-form-label">Student Name</label>
+									<select class=" col-sm-8" th:field="${teacherCourseStudentsDto.studentsId}">
+										<option th:each="student : ${students}" th:value="${student.id}"
+											th:text="${student.name}">
+										</option>
+									</select>
+								</div>
+							
+								<div class="row mb-3">
+									<div class="offset-sm-4 col-sm-4 d-grid">
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+
+									<div class="col-sm-4 d-grid">
+										<div class="col-sm-4 d-grid">
+											<a class="btn btn-outline-primary"
+												href="/teacherCourseStudents" role="button">Cancel</a>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:include="layout/adminfooter"></div>
